@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="the-void"
-run/main_scene="res://RocketLaunch/scenes/launch_world.tscn"
+run/main_scene="res://SpaceShooter/SpaceWorld.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -24,6 +24,10 @@ window/stretch/aspect="keep"
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/wakatime/plugin.cfg" )
+
+[global]
+
+"main scene"=false
 
 [gui]
 
