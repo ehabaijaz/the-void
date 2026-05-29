@@ -16,8 +16,8 @@ func spawn_enemy():
 	var spawn_position = get_spawn_position() # The returned value is now put in this variable
 	var enemy = Enemy.instance() # The instantiation of the preloaded enemy scene in the Enemy variable
 	var main = get_tree().current_scene # Gets the current scene thats playing (Space World)
-	main.add_child(enemy)
-	enemy.position = spawn_position
+	main.add_child(enemy) # Adds enemy to the main scene
+	enemy.position = spawn_position # Makes enemy position to the spawn position
 
 func _on_Timer_timeout():
 	spawn_enemy()
