@@ -1,16 +1,18 @@
 ##  About ⬛
 - The Void is an interdimensional collection of small projects, sometimes disconnected, sometimes confusing but all lead to each other one way or another. 
 - 'Play' 4 projects created in Godot, all with a distinct, matching art style.
-- In my opinion, if you look deeply enough there are nihilistic themes in what The Void presents. But maybe I'm overthinking it.
-
+  
 ## Games ⚫
-- Main Menu: Access these 'games' through a Main Menu (the preferred medium of the Void to present you these 'games')
+- Main Menu: Access these games through a Main Menu 
 - Rocket Launch: Press a button and a rocket launches. Press it again and it launches again.
-- Piggy: Control a pig eating remnants of matter growing larger till it's big and full, remaining like that for eternity.
-- Space Shooter: The rocket you launched now flies in spaces, shooting enemies increasing a trivial 'score' point.
-- Metroidvania: An astronaut exploring space, mutant creatures VS your gun. At the end, a monster representing futility and rage: difficult to kill but possible. No win screen (if you want that you're missing the point).
+- Piggy: Control a pig and collect apples to grow bigger. Oddly satisfying.
+- Space Shooter: A comparable leap in quality. Control the rocket ship you launched in space shooting monsters and upgrading your score.
+- Metroidvania: Soon™ (after i ship this project once)
 
 ## Controls ▪️
-- To be added
+- Main Menu: Click on the buttons to play the games. Click the ESC key at any time to go back to main menu.
+- Rocket Launch: Click on the 'Launch' button to launch the ship.
+- Piggy: Use arrow keys to control the pig and it automatically collects the apples.
+- Metroidvania: Soon™ 
 
 No AI was used in this game, nor in this README or itch description. 
