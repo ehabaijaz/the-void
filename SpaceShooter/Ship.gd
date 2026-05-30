@@ -2,19 +2,40 @@ extends Area2D
 
 # Comments are made by me, not AI.. uhh i got bored of writing comments so i stopped halfway
 const ExplosionEffect = preload('res://SpaceShooter/ExplosionEffect.tscn') # Preloading the explosion effect scene 
-const Bullet = preload("res://Spaceshooter/Laser.tscn") # Preloading the bullet scene in bullet var
-
+const Bullet = preload("res://SpaceShooter/Laser.tscn") # Preloading the bullet scene in bullet var
 export(int) var SPEED = 500 # Exporting the speed variable so modification in inspector is possible
-
+var can_move = false
 signal player_death
 
 func _process(delta): # Runs every second
+	if Input.is_action_just_pressed("seven"):
+		can_move = true
 	if Input.is_action_pressed('ui_up'): # If the player presses the up arrow key
 		position.y -= SPEED * delta # Make the ship move up by speed * delta to make movement frame rate independent
 	if Input.is_action_pressed('ui_down'): 
 		position.y += SPEED * delta # Moves shp down
 	if Input.is_action_just_pressed('ui_accept'): # If player presses enter key or space bar
 		fire_bullet() # Call fire bullet func
+	if Input.is_action_just_pressed("powerup"):
+		for i in range(5):
+			fire_bullet()
+		$PowerupTimer.start()
+		if not $PowerupTimer.is_stopped():
+			pass
+			
+	if Input.is_action_just_pressed("invisibility"):
+		$InvisibilityTimer.start()
+		if not $InvisibilityTimer.is_stopped():
+			$Sprite.modulate = Color(1.0,0.0,0.0,1.0)
+			$CollisionPolygon2D.set_deferred("disabled", true)
+	if can_move == true:
+		if Input.is_action_pressed('ui_left'):
+			position.x -= SPEED * delta
+		if Input.is_action_pressed('ui_right'):
+			position.x += SPEED * delta
+
+	
+		
 		
 		
 		
@@ -32,6 +53,12 @@ func _on_Ship_area_entered(area): # If area enters the ship (the only other area
 func _exit_tree():
 	var main = get_tree().current_scene
 	var explosion_effect = ExplosionEffect.instance()
-	main.add_child(explosion_effect)
+	main.call_deferred("add_child",explosion_effect)
 	explosion_effect.global_position = global_position # The same as death of enemy 
 	emit_signal("player_death")
+
+
+
+func _on_InvisibilityTimer_timeout():
+		$Sprite.modulate = Color(1.0,1.0,1.0,1.0)
+		$CollisionPolygon2D.set_deferred("disabled", false)

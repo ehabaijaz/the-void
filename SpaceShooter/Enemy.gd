@@ -27,5 +27,5 @@ func _on_VisibilityNotifier2D_screen_exited(): # if the enemy has exited the scr
 func _exit_tree(): # Once the enemy dies or exits the tree by queue_free()
 	var main = get_tree().current_scene # Gets the main sceen which is SpaceWorld
 	var explosion_effect = ExplosionEffect.instance() # Instances the explosion effect
-	main.add_child(explosion_effect) # Adds it to SpaceWorld
+	main.call_deferred("add_child",explosion_effect) # Adds it to SpaceWorld
 	explosion_effect.global_position = global_position  # Makes position of the explosion where Enemy is
