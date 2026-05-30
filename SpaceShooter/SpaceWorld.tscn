@@ -4,17 +4,7 @@
 [ext_resource path="res://SpaceShooter/SpaceWorld.gd" type="Script" id=2]
 [ext_resource path="res://SpaceShooter/EnemySpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://SpaceShooter/PixelRPG.ttf" type="DynamicFontData" id=4]
-
-[sub_resource type="ParticlesMaterial" id=1]
-emission_shape = 2
-emission_box_extents = Vector3( 1, 90, 1 )
-flag_disable_z = true
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = -100.0
-initial_velocity_random = 0.5
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
+[ext_resource path="res://SpaceShooter/Stars.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=2]
 size = 12
@@ -31,13 +21,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Stars" type="Particles2D" parent="."]
-position = Vector2( 1280, 351 )
-scale = Vector2( 4, 4 )
-amount = 200
-lifetime = 7.0
-preprocess = 7.0
-process_material = SubResource( 1 )
+[node name="Stars" parent="." instance=ExtResource( 5 )]
 
 [node name="Ship" parent="." instance=ExtResource( 1 )]
 position = Vector2( 36, 261 )
@@ -59,3 +43,5 @@ custom_fonts/font = SubResource( 2 )
 text = "Score: 0"
 align = 1
 valign = 1
+
+[connection signal="player_death" from="Ship" to="." method="_on_Ship_player_death"]

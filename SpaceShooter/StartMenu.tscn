@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://SpaceShooter/PixelRPG.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://SpaceShooter/Stars.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SpaceShooter/StartMenu.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[node name="StartMenu" type="Node"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Stars" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1479, 368 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CenterContainer"]
+margin_left = 535.0
+margin_top = 341.0
+margin_right = 744.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 1 )
+text = "Press Space to Start
+Press Escape to Quit"
+align = 1
+valign = 1
+
+[node name="RocketButton" type="Button" parent="."]
+margin_left = 97.0
+margin_top = 597.0
+margin_right = 316.0
+margin_bottom = 654.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Play Rocket Launch"
+
+[node name="PiggyButton" type="Button" parent="."]
+margin_left = 995.0
+margin_top = 597.0
+margin_right = 1214.0
+margin_bottom = 654.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Play Piggy"
+
+[connection signal="pressed" from="RocketButton" to="." method="_on_RocketButton_pressed"]
+[connection signal="pressed" from="PiggyButton" to="." method="_on_PiggyButton_pressed"]

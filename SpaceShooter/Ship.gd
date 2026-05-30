@@ -1,10 +1,12 @@
 extends Area2D
 
-# Comments are made by me, not AI
+# Comments are made by me, not AI.. uhh i got bored of writing comments so i stopped halfway
 const ExplosionEffect = preload('res://SpaceShooter/ExplosionEffect.tscn') # Preloading the explosion effect scene 
 const Bullet = preload("res://Spaceshooter/Laser.tscn") # Preloading the bullet scene in bullet var
 
 export(int) var SPEED = 500 # Exporting the speed variable so modification in inspector is possible
+
+signal player_death
 
 func _process(delta): # Runs every second
 	if Input.is_action_pressed('ui_up'): # If the player presses the up arrow key
@@ -32,3 +34,4 @@ func _exit_tree():
 	var explosion_effect = ExplosionEffect.instance()
 	main.add_child(explosion_effect)
 	explosion_effect.global_position = global_position # The same as death of enemy 
+	emit_signal("player_death")

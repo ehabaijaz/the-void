@@ -1,13 +1,8 @@
 extends Node
 
-onready var animationPlayer = $AnimationPlayer
 
 func _ready():
-	animationPlayer.play("Launch")
-
-
-func _on_LaunchButton_pressed():
-	animationPlayer.play("Launch")
+	pass
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
